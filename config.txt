@@ -1,2 +1,2 @@
-set time[s]:1800
+set time[s]:20
 set log output path(includes file name):./taskLog.txt

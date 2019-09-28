@@ -6,7 +6,18 @@ import datetime
 import pytz
 import getpass
 
+after_id = None
+
+
 def startTimerTrig():
+
+    # after_cancelを用いてcommand 実行待ちを取り消す。
+    # これをしないと複数回STARTボタンを押すと、
+    # 前回のcommand も重複して実行されるため、残り時間が狂う!!
+    global after_id
+    if after_id:
+        root.after_cancel(after_id)
+        after_id = None
 
     now_jp = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
     date_jp_form = now_jp.strftime("%Y/%m/%d %H:%M:%S")
@@ -20,14 +31,15 @@ def startTimerTrig():
 
 
 def timer():
-    time = int(buff.get())
+    global after_id
 
+    time = int(buff.get())
     if time > 0:
-        root.after(1000, timer)
+        after_id = root.after(1000, timer)
         time -= 1
         buff.set(str(time))
     else:
-       messagebox.showinfo('経過報告', str(CNT_TIME) + '秒経過しました!!!!')
+        messagebox.showinfo('経過報告', str(CNT_TIME) + '秒経過しました!!!!')
 
 
 # 設定ファイルの読み込み
