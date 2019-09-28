@@ -1,0 +1,9 @@
+●pyinstallerでのexe化手順
+
+pip install pyinstaller
+
+pyinstaller main.py(ファイル名) --onefile --noconsole
+
+
+●Linuxでのexeファイル実行方法
+https://note.spage.jp/archives/378
