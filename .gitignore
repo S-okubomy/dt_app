@@ -1,0 +1,14 @@
+dist/taskLog.exe
+__pycache__/taskLog.cpython-37.pyc
+build/taskLog/Analysis-00.toc
+build/taskLog/base_library.zip
+build/taskLog/EXE-00.toc
+build/taskLog/PKG-00.pkg
+build/taskLog/PKG-00.toc
+build/taskLog/PYZ-00.pyz
+build/taskLog/PYZ-00.toc
+build/taskLog/taskLog.exe.manifest
+build/taskLog/Tree-00.toc
+build/taskLog/Tree-01.toc
+build/taskLog/warn-taskLog.txt
+build/taskLog/xref-taskLog.html
