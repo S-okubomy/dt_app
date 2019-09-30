@@ -2,7 +2,7 @@
 
 pip install pyinstaller
 
-pyinstaller main.py(ファイル名) --onefile --noconsole
+pyinstaller taskLog.py --onefile --noconsole
 
 
 ●Linuxでのexeファイル実行方法
