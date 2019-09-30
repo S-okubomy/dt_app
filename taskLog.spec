@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['taskLog.py'],
-             pathex=['C:\\Users\\ad\\Documents\\python_work\\ws-python-pri\\dt_app'],
+             pathex=['/home/okubo/ドキュメント/python_work/dt_app'],
              binaries=[],
              datas=[],
              hiddenimports=[],

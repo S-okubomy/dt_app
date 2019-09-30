@@ -5,6 +5,7 @@ from tkinter import messagebox
 import datetime
 import pytz
 import getpass
+import csv
 
 after_id = None
 
@@ -20,11 +21,18 @@ def startTimerTrig():
         after_id = None
 
     now_jp = datetime.datetime.now(pytz.timezone('Asia/Tokyo'))
-    date_jp_form = now_jp.strftime("%Y/%m/%d %H:%M:%S")
+    # date_jp_form = now_jp.strftime("%Y/%m/%d %H:%M:%S")
+    date_jp_form_day = now_jp.strftime("%Y/%m/%d")
+    date_jp_form_time = now_jp.strftime("%H:%M:%S")
+
+
     user_id = getpass.getuser()
 
-    with open(LOG_PATH, 'a') as f:
-        print(date_jp_form + '  ' 'USER：' + user_id + '  ' + 'タスク名：' + entryTaskName.get(), file=f)
+    csvLine = [date_jp_form_day, date_jp_form_time, 'USER：', user_id, 'タスク名：', entryTaskName.get()]
+    with open(LOG_PATH, 'a', newline='') as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerow(csvLine)
+        # print(date_jp_form_day + '  ' 'USER：' + user_id + '  ' + 'タスク名：' + entryTaskName.get(), file=f)
 
     buff.set(str(CNT_TIME))
     timer()
